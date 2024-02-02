@@ -15,6 +15,7 @@
         public string                Gender                { get; set; }
         public string                CoachDescription      { get; set; }
         public bool?                 IsActive              { get; set; }
+        public bool?                 IsAvaible             { get; set; }
         public string                EmergencyContactName  { get; set; }
         public string                EmergencyContactPhone { get; set; }
         public virtual PersonType    PersonType            { get; set; }

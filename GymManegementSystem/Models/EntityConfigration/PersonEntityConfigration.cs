@@ -11,6 +11,8 @@ namespace Gym_Manegement_API.Models.EntityConfigration
             builder.ToTable("Person");
             builder.HasKey(p => p.PersonId);
             builder.Property(p => p.IsActive).HasDefaultValue(true);
+            builder.Property(x => x.IsAvaible).HasDefaultValue(true);
+
         }
     }
 }

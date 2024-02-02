@@ -11,6 +11,8 @@ namespace Gym_Manegement_API.Models.EntityConfigration
             builder.ToTable("Subscriptions");
             builder.HasKey(x => x.SubscriptionId);
             builder.Property(x => x.IsActive).HasDefaultValue(true);
+            builder.Property(x => x.IsAvaible).HasDefaultValue(true);
+
         }
     }
 }

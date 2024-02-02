@@ -12,6 +12,7 @@ namespace Gym_Manegement_API.Models.Entity
       public int                      DurationInDays        { get; set; }
       public int                      TrainingHoursPerDay   { get; set; }
       public bool?                    IsActive              { get; set; }
+      public bool?                    IsAvaible             { get; set; }
       public MembershipPlan           MembershipPlan        { get; set; } 
       public ClassSubscriptionPlan    ClassSubscriptionPlan { get; set; }
       public SubscriptionDuration     Duration              { get; set; }
