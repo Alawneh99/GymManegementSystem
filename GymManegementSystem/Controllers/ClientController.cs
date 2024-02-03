@@ -21,6 +21,9 @@ namespace GymManegementSystem.Controllers
             _ManagementDbContext = context;
         }
         #region Subscription(Action)
+        /// <summary>
+        ///   Get All Subscriptions
+        /// </summary>
         [HttpGet]
         [Route("[action]")]
         public async Task<IActionResult> GetAllSubscriptionsAction()
@@ -35,7 +38,9 @@ namespace GymManegementSystem.Controllers
                 return new ObjectResult(null) { StatusCode = 500, Value = $"Failed to retrieve subscriptions: {ex.Message}" };
             }
         }
-
+        /// <summary>
+        ///   Search Subscriptions
+        /// </summary>
         [HttpGet]
         [Route("[action]")]
         public async Task<IActionResult> SearchSubscriptionsAction(float? maxPrice, int? durationInDays, string title)
@@ -58,6 +63,9 @@ namespace GymManegementSystem.Controllers
                 return new ObjectResult(null) { StatusCode = 500, Value = $"Subscription search failed: {ex.Message}" };
             }
         }
+        /// <summary>
+        ///   Register In Subscription
+        /// </summary>
         [HttpPost]
         [Route("[action]")]
         public async Task<IActionResult> RegisterInSubscriptionAction(int clientId, int subscriptionId)
@@ -82,6 +90,9 @@ namespace GymManegementSystem.Controllers
 
         #endregion
         #region Coach(Action)
+        /// <summary>
+        ///  Get All Coaches
+        /// </summary>
         [HttpGet]
         [Route("[action]")]
         public async Task<IActionResult> GetAllCoachesAction()
@@ -98,6 +109,9 @@ namespace GymManegementSystem.Controllers
         }
         #endregion
         #region Account(Action)
+        /// <summary>
+        ///  Create an Account
+        /// </summary>
         [HttpPost]
         [Route("[action]")]
         public async Task<IActionResult> CreateAccountAction(ClientAccountDTO clientAccountDTO)
@@ -112,6 +126,9 @@ namespace GymManegementSystem.Controllers
                 return new ObjectResult(null) { StatusCode = 500, Value = $"Account creation failed: {ex.Message}" };
             }
         }
+        /// <summary>
+        ///   Login
+        /// </summary>
         [HttpPost]
         [Route("[action]")]
         public async Task<IActionResult> LoginAction(LoginDTO dto)
@@ -126,6 +143,9 @@ namespace GymManegementSystem.Controllers
                 return new ObjectResult(null) { StatusCode = 500, Value = $"Login Failed {ex.Message}" };
             }
         }
+        /// <summary>
+        ///   Reset Password
+        /// </summary>
         [HttpPut]
         [Route("[action]")]
         public async Task<IActionResult> ResetPasswordAction(ResetPasswordDTO dto)

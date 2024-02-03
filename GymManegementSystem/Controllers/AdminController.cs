@@ -25,6 +25,9 @@ namespace GymManegementSystem.Controllers
             _ManagementDbContext = context;
         }
         #region Coach(Action)
+        /// <summary>
+        /// Retrieves all Coatches
+        /// </summary>
         [HttpGet]
         [Route("[action]")]
         public async Task<IActionResult> GetAllCoachesAction()
@@ -39,6 +42,9 @@ namespace GymManegementSystem.Controllers
                 return StatusCode(500, "Internal Server Error");
             }
         }
+        /// <summary>
+        /// Create a Coach
+        /// </summary>
         [HttpPost]
         [Route("[action]")]
         public async Task<IActionResult> CreateCoachAction(CoachDTO coachDTO)
@@ -53,6 +59,9 @@ namespace GymManegementSystem.Controllers
                 return StatusCode(500, "Internal Server Error");
             }
         }
+        /// <summary>
+        ///  Update a Coach
+        /// </summary>
         [HttpPut]
         [Route("[action]")]
         public async Task<IActionResult> UpdateCoachAction(UpdateCoachDTO updateCoachDTO)
@@ -67,6 +76,9 @@ namespace GymManegementSystem.Controllers
                 return StatusCode(500, "Internal Server Error");
             }
         }
+        /// <summary>
+        ///   Delete a Coach
+        /// </summary>
         [HttpPost]
         [Route("[action]")]
         public async Task<IActionResult> DeleteCoachAction(int coachId)
@@ -164,6 +176,9 @@ namespace GymManegementSystem.Controllers
 
         #endregion
         #region Admin(Action)
+        /// <summary>
+        ///  Get All Admins
+        /// </summary>
         [HttpGet]
         [Route("[action]")]
         public async Task<IActionResult> GetAllAdminsAction()
@@ -178,6 +193,9 @@ namespace GymManegementSystem.Controllers
                 return StatusCode(500, "Internal Server Error");
             }
         }
+        /// <summary>
+        ///  Add an Admin
+        /// </summary>
         [HttpPost]
         [Route("[action]")]
         public async Task<IActionResult> AddAdminAction(AdminDTO adminDTO)
@@ -192,6 +210,9 @@ namespace GymManegementSystem.Controllers
                 return StatusCode(500, "Internal Server Error");
             }
         }
+        /// <summary>
+        ///  Update an Admin
+        /// </summary>
         [HttpPut]
         [Route("[action]")]
         public async Task<IActionResult> UpdateAdminAction(UpdateAdminDTO updateAdminDTO)
@@ -206,6 +227,9 @@ namespace GymManegementSystem.Controllers
                 return StatusCode(500, "Internal Server Error");
             }
         }
+        /// <summary>
+        ///  Delete an Admin
+        /// </summary>
         [HttpPost]
         [Route("[action]")]
         public async Task<IActionResult> DeleteAdminAction(int adminId)
@@ -284,6 +308,9 @@ namespace GymManegementSystem.Controllers
 
         #endregion
         #region Department(Action)
+        /// <summary>
+        ///   Create a Department
+        /// </summary>
         [HttpPost]
         [Route("[action]")]
         public async Task<IActionResult> CreateDepartmentAction(DepartmentDTO departmentDTO)
@@ -298,6 +325,9 @@ namespace GymManegementSystem.Controllers
                 return StatusCode(500, "Internal Server Error");
             }
         }
+        /// <summary>
+        ///   Update a Department
+        /// </summary>
         [HttpPut]
         [Route("[action]")]
         public async Task<IActionResult> UpdateDepartmentAction(UpdateDepartmentDTO updateDepartmentDTO)
@@ -312,6 +342,9 @@ namespace GymManegementSystem.Controllers
                 return StatusCode(500, "Internal Server Error");
             }
         }
+        /// <summary>
+        ///   Delete a Department
+        /// </summary>
         [HttpPost]
         [Route("[action]")]
         public async Task<IActionResult> DeleteDepartmentAction(int departmentId)
@@ -326,6 +359,9 @@ namespace GymManegementSystem.Controllers
                 return StatusCode(500, "Internal Server Error");
             }
         }
+        /// <summary>
+        ///   Get All Department
+        /// </summary>
         [HttpGet]
         [Route("[action]")]
         public async Task<IActionResult> GetAllDepartmentAction()
@@ -393,6 +429,9 @@ namespace GymManegementSystem.Controllers
         }
         #endregion
         #region Employee(Action)
+        /// <summary>
+        ///   Get All Employees
+        /// </summary>
         [HttpGet]
         [Route("[action]")]
         public async Task<IActionResult> GetAllEmployeesAction()
@@ -407,7 +446,9 @@ namespace GymManegementSystem.Controllers
                 return StatusCode(500, "Internal Server Error");
             }
         }
-
+        /// <summary>
+        ///  Create an Employee
+        /// </summary>
         [HttpPost]
         [Route("[action]")]
         public async Task<IActionResult> CreateEmployeeAction(EmployeeDTO employeeDTO)
@@ -422,7 +463,9 @@ namespace GymManegementSystem.Controllers
                 return StatusCode(500, "Internal Server Error");
             }
         }
-
+        /// <summary>
+        ///  Update an Employee
+        /// </summary>
         [HttpPut]
         [Route("[action]")]
         public async Task<IActionResult> UpdateEmployeeAction(UpdateEmployeeDTO updateEmployeeDTO)
@@ -437,7 +480,9 @@ namespace GymManegementSystem.Controllers
                 return StatusCode(500, "Internal Server Error");
             }
         }
-
+        /// <summary>
+        ///  Delete an Employee
+        /// </summary>
         [HttpPost]
         [Route("[action]")]
         public async Task<IActionResult> DeleteEmployeeAction(int employeeId)
@@ -513,6 +558,9 @@ namespace GymManegementSystem.Controllers
         }
         #endregion
         #region Subscription(Action)
+        /// <summary>
+        /// Get All Subscriptions
+        /// </summary>
         [HttpGet]
         [Route("[action]")]
         public async Task<IActionResult> GetAllSubscriptionsAction()
@@ -527,7 +575,9 @@ namespace GymManegementSystem.Controllers
                 return StatusCode(500, "Internal Server Error");
             }
         }
-
+        /// <summary>
+        ///  Create a Subscription
+        /// </summary>
         [HttpPost]
         [Route("[action]")]
         public async Task<IActionResult> CreateSubscriptionAction(SubscriptionDTO subscriptionDTO)
@@ -542,7 +592,9 @@ namespace GymManegementSystem.Controllers
                 return StatusCode(500, "Internal Server Error");
             }
         }
-
+        /// <summary>
+        ///  Update a Subscription
+        /// </summary>
         [HttpPut]
         [Route("[action]")]
         public async Task<IActionResult> UpdateSubscriptionAction(UpdateSubscriptionDTO updateSubscriptionDTO)
@@ -557,7 +609,9 @@ namespace GymManegementSystem.Controllers
                 return StatusCode(500, "Internal Server Error");
             }
         }
-
+        /// <summary>
+        ///  Delete a Subscription
+        /// </summary>
         [HttpPost]
         [Route("[action]")]
         public async Task<IActionResult> DeleteSubscriptionAction(int subscriptionId)
@@ -572,7 +626,9 @@ namespace GymManegementSystem.Controllers
                 return StatusCode(500, "Internal Server Error");
             }
         }
-
+        /// <summary>
+        ///   Deactivate a Subscription
+        /// </summary>
         [HttpPost]
         [Route("[action]")]
         public async Task<IActionResult> DeactivateSubscriptionAction(int subscriptionId)
@@ -587,7 +643,9 @@ namespace GymManegementSystem.Controllers
                 return StatusCode(500, "Internal Server Error");
             }
         }
-
+        /// <summary>
+        ///   Reactivate a Subscription
+        /// </summary>
         [HttpPost]
         [Route("[action]")]
         public async Task<IActionResult> ReactivateSubscriptionAction(int subscriptionId)
