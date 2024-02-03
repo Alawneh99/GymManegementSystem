@@ -28,11 +28,11 @@ namespace GymManegementSystem.Controllers
             try
             {
                 var subscriptions = await GetAllSubscriptions();
-                return Ok(subscriptions);
+                return new ObjectResult(subscriptions) { StatusCode = 200, Value = "Subscriptions retrieved successfully" };
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error");
+                return new ObjectResult(null) { StatusCode = 500, Value = $"Failed to retrieve subscriptions: {ex.Message}" };
             }
         }
 
@@ -42,12 +42,20 @@ namespace GymManegementSystem.Controllers
         {
             try
             {
-                var subscriptions = await SearchSubscriptions(maxPrice, durationInDays, title);
-                return Ok(subscriptions);
+                var result = await SearchSubscriptions(maxPrice, durationInDays, title);
+
+                if (result != null && result.Any())
+                {
+                    return new ObjectResult(result) { StatusCode = 200, Value = "Subscription search successful" };
+                }
+                else
+                {
+                    return new ObjectResult(null) { StatusCode = 404, Value = "No subscriptions found matching the search criteria" };
+                }
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error");
+                return new ObjectResult(null) { StatusCode = 500, Value = $"Subscription search failed: {ex.Message}" };
             }
         }
         [HttpPost]
@@ -59,16 +67,16 @@ namespace GymManegementSystem.Controllers
                 var isSuccess = await RegisterInSubscription(clientId, subscriptionId);
                 if (isSuccess)
                 {
-                    return Ok("Registration successful");
+                    return new ObjectResult(null) { StatusCode = 201, Value = "Registration successful" };
                 }
                 else
                 {
-                    return BadRequest("Registration failed");
+                    return new ObjectResult(null) { StatusCode = 400, Value = "Registration failed: Invalid client or subscription" };
                 }
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error");
+                return new ObjectResult(null) { StatusCode = 500, Value = $"Registration failed: {ex.Message}" };
             }
         }
 
@@ -97,11 +105,11 @@ namespace GymManegementSystem.Controllers
             try
             {
                 await CreateAccount(clientAccountDTO);
-                return Ok();
+                return new ObjectResult(null) { StatusCode = 201, Value = "Account created successfully" };
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Internal Server Error {ex.Message}");
+                return new ObjectResult(null) { StatusCode = 500, Value = $"Account creation failed: {ex.Message}" };
             }
         }
         [HttpPost]
