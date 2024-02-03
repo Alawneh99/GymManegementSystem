@@ -101,7 +101,7 @@ namespace GymManegementSystem.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error");
+                return StatusCode(500, $"Internal Server Error {ex.Message}");
             }
         }
         [HttpPost]
@@ -187,6 +187,7 @@ namespace GymManegementSystem.Controllers
 
             return subscriptions;
         }
+        [NonAction]
         public async Task<bool> RegisterInSubscription(int clientId, int subscriptionId)
         {
             var client = await _ManagementDbContext.Clients.FindAsync(clientId);
