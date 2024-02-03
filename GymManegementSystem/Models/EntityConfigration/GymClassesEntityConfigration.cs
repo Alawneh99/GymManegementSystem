@@ -9,7 +9,7 @@ namespace Gym_Manegement_API.Models.EntityConfigration
         public void Configure(EntityTypeBuilder<GymClasses> builder)
         {
             builder.ToTable("GymClasses");
-            builder.HasKey(x => x.ClassId);
+            builder.HasKey(x => x.Id);
             builder.Property(x => x.IsActive).HasDefaultValue(true);
         }
     }
